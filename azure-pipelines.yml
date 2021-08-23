@@ -24,7 +24,7 @@ steps:
   displayName: 'build'
   inputs:
     command: 'build'
-    projects: '**/*.csproj'
+    projects: '**/DEMOWEBAPP/*.csproj'
     publishWebProjects: true    
 
 - task: PublishBuildArtifacts@1
