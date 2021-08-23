@@ -17,4 +17,5 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
+- task: PublishBuildArtifacts@1
     
