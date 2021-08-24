@@ -41,8 +41,15 @@ stages:
         tags: |
           $(tag)
 
-    - upload: manifests
-      artifact: manifests
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: 'webapp'
+        Contents: |
+          deployment.yml
+          service.yml
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+ 
+    
 
 - stage: Deploy
   displayName: Deploy stage
@@ -70,8 +77,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/deployment.yml
-                $(Pipeline.Workspace)/manifests/service.yml
+                $(Pipeline.Workspace)/deployment.yml
+                $(Pipeline.Workspace)/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
