@@ -8,8 +8,8 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-  demands:
-  - Agent.OS -equals Linux 
+  # demands:
+  # - Agent.OS -equals Linux 
   
 container: mcr.microsoft.com/dotnet/core/sdk:3.1
    
